@@ -6,21 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1111</width>
+    <height>834</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="imgLabel">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>120</y>
-      <width>341</width>
-      <height>231</height>
+      <x>60</x>
+      <y>250</y>
+      <width>421</width>
+      <height>271</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -33,10 +36,10 @@
    <widget class="QLabel" name="hasilImage">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>120</y>
-      <width>341</width>
-      <height>231</height>
+      <x>630</x>
+      <y>250</y>
+      <width>421</width>
+      <height>271</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -49,11 +52,19 @@
    <widget class="QPushButton" name="loadButton">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>410</y>
-      <width>75</width>
-      <height>23</height>
+      <x>460</x>
+      <y>550</y>
+      <width>201</width>
+      <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="text">
      <string>load image</string>
@@ -62,10 +73,10 @@
    <widget class="QSlider" name="kernelSizeSlider">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>20</y>
-      <width>160</width>
-      <height>22</height>
+      <x>380</x>
+      <y>70</y>
+      <width>351</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="orientation">
@@ -75,8 +86,8 @@
    <widget class="QCheckBox" name="normalizeCheckbox">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>50</y>
+      <x>480</x>
+      <y>140</y>
       <width>121</width>
       <height>17</height>
      </rect>
@@ -85,14 +96,68 @@
      <string>Normalisasi CheckBox</string>
     </property>
    </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>170</y>
+      <width>131</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>26</pointsize>
+     </font>
+    </property>
+    <property name="plainText">
+     <string>Hasil</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="saveButton">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>620</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Save</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_3">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>170</y>
+      <width>181</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>26</pointsize>
+     </font>
+    </property>
+    <property name="plainText">
+     <string>Preview</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>21</height>
+     <width>1111</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">

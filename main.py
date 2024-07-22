@@ -15,16 +15,19 @@ class EdgeDetectionApp(QMainWindow):
         self.imgLabel = self.findChild(QLabel, 'imgLabel')
         self.hasilImage = self.findChild(QLabel, 'hasilImage')
         self.loadButton = self.findChild(QPushButton, 'loadButton')
+        self.saveButton = self.findChild(QPushButton, 'saveButton')
         self.kernelSizeSlider = self.findChild(QSlider, 'kernelSizeSlider')
         self.normalizeCheckbox = self.findChild(QCheckBox, 'normalizeCheckbox')
 
         # Menghubungkan tombol ke fungsi
         self.loadButton.clicked.connect(self.load_image)
+        self.saveButton.clicked.connect(self.save_image)
         self.actionSobel.triggered.connect(self.run_sobel)
         self.actionPrewitt.triggered.connect(self.run_prewitt)
         self.actionCanny.triggered.connect(self.run_canny)
 
         self.original_image = None
+        self.processed_image = None
 
         # Mengatur slider agar hanya menerima nilai ganjil yang valid
         self.kernelSizeSlider.setMinimum(3)
@@ -63,6 +66,7 @@ class EdgeDetectionApp(QMainWindow):
                     sobel = np.uint8(sobel / sobel.max() * 255)
                 else:
                     sobel = np.uint8(sobel)
+                self.processed_image = sobel
                 self.display_image(sobel, self.hasilImage)
             else:
                 print(f"Invalid kernel size: {ksize}")
@@ -78,6 +82,7 @@ class EdgeDetectionApp(QMainWindow):
                 prewitt_result = np.uint8((prewitt_result / prewitt_result.max()) * 255)
             else:
                 prewitt_result = np.uint8(prewitt_result)
+            self.processed_image = prewitt_result
             self.display_image(prewitt_result, self.hasilImage)
 
     def run_canny(self):
@@ -90,7 +95,15 @@ class EdgeDetectionApp(QMainWindow):
                 edges = np.uint8(edges / edges.max() * 255)
             else:
                 edges = np.uint8(edges)
+            self.processed_image = edges
             self.display_image(edges, self.hasilImage)
+
+    def save_image(self):
+        if self.processed_image is not None:
+            options = QFileDialog.Options()
+            filename, _ = QFileDialog.getSaveFileName(self, "Save Image File", "", "PNG Files (*.png)", options=options)
+            if filename:
+                cv2.imwrite(filename, self.processed_image)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
